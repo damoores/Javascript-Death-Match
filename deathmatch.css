@@ -1,0 +1,52 @@
+header {
+	text-align: center;
+	font-family: "Courier New";
+	font-size: 60px;
+	color: white;
+	background-color: black;
+	opacity: .6;
+}
+#Intro {
+	text-align: center;
+	font-family: "Courier New";
+	font-size: 20px;
+	color: white;
+	background-color: black;
+	opacity: .75;
+}
+
+#userFighter {
+	position: relative;
+	top: 50px;
+	left: 350px;
+}
+
+#computerFighter {
+	position: relative;
+	top: 50px;
+	left: 150px;
+}
+body {
+	background-image: url("Images/Thunderdome.png");
+		/* image source 2/19/15 14:09: "http://vignette2.wikia.nocookie.net/
+			teenwolf/images/f/f3/Werewolf_Thunderdome_Cover.png/revision/
+			latest?cb=20130611213641%22)" */"
+}
+
+.fighter {
+	font-family: "Courier New";
+	color: white;
+	background-color: black;
+	opacity: .75;
+	text-align: center;
+	width: 405px;
+	height: 355px;
+	border: 5px solid grey;
+	display: inline-block;
+	margin: auto;
+}
+
+.picture {
+	width: 400px;
+	height: 250px;
+}
