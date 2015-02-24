@@ -6,30 +6,50 @@ var Fighter = function() {
 }
 var computerFighter = new Fighter();
 var userFighter = new Fighter();
-var computerStats = ' ';
-var userStats = ' ';
+var computerStats = '';
+var userStats = '';
+var computerHit='';
+var userHit='';
 
 function rollDice() {
   return Math.floor((Math.random()*10)+1);
 }
 
-for (property in computerFighter) {
-  computerStats += property + ':' + computerFighter[property]+'; ';
-}
-alert("Computer fighter's stats: " + computerStats);
-
-for (property in userFighter) {
-  userStats += property + ':' + userFighter[property]+'; ';
-}
-alert("Your fighter's stats are: " + userStats);
-
-while (computerFighter.health >0 && userFighter.health > 0) {
-  if (computerFighter.luck>rollDice()) {
-    userFighter.health -= (rollDice()+computerFighter.weapon);
-  } 
-  if (userFighter.luck>rollDice()) {
-    computerFighter.health -= (rollDice()+userFighter.weapon);
+function statRollup(theFighter) {
+  var stats = '';
+  for(property in theFighter) {
+    stats += property + ':' + theFighter[property] + '; ';
   }
+  return stats;
 }
+
+function fightRound () {
+  computerHit='';
+  userHit='';
+  if (computerFighter.luck>rollDice() && computerFighter.health > 0) {
+    computerHit=(rollDice()+computerFighter.weapon);
+    userFighter.health -= computerHit;
+  } else {
+    computerHit='missed!';
+  }
+  if (userFighter.luck>rollDice() && userFighter.health > 0) {
+    computerFighter.health -= (rollDice()+userFighter.weapon);
+  } else {
+    userHit = 'missed!';
+  } 
+}
+
+function roundStart() {
+  alert("holy shit it worked");
+
+}
+
+$('#compStats').replaceWith(statRollup(computerFighter)); //placeholder
+$('#userStats').replaceWith(statRollup(userFighter)); //placeholder
+
 
 alert("Computer HP: " + computerFighter.health + ". " + "Your HP: " + userFighter.health+ ".");
+
+/*for (property in userFighter) {
+  userStats += property + ':' + userFighter[property]+' ';
+} */
