@@ -42,13 +42,12 @@ function fightRound () {
   } else {
     userHit = 'missed!';
   }
-  return userHit, computerHit; 
 }
   
 function roundStart() {
   fightRound();
-  $('#userStats').replaceWith(statRollup(userFighter)); //placeholder
-  //$('#compStats').replaceWith(statRollup(computerFighter)); //placeholder
+  $('#userStats').val(statRollup(userFighter)); //placeholder
+  $('#compStats').replaceWith(computerFighter)); //placeholder
   //alert("The computer hit " + computerHit);
   //alert("Your hit " + userHit);
 }
