@@ -6,9 +6,10 @@ header {
 	background-color: black;
 	opacity: .6;
 	position: relative;
-	left: 200px;
+	left: 300px;
 	width: 850px;
 }
+
 #Intro {
 	text-align: center;
 	font-family: "Courier New";
@@ -18,14 +19,14 @@ header {
 	opacity: .75;
 	position: relative;
 	top: -50px;
-	left: 200px;
+	left: 300px;
 	width: 850px;
 }
 
 #userFighter {
 	position: relative;
 	top: 50px;
-	left: 350px;
+	left: 250px;
 }
 
 #computerFighter {
@@ -40,15 +41,32 @@ header {
 	background-color: black;
 	opacity: .75;
 	text-align: left;
-	width: 155px;
+	width: 200px;
 	height: 405px;
 	border: 5px solid grey;
 	position: relative;
-	top: -450;
-	left: -350;
+	top: -07px;
+	left: 200px;
 	display: inline-block;
 }
 
+#roundButton {
+	font-family: "Courier New";
+	font-size: 20px;
+	position: relative;
+	left: 40px;
+	top: 15px;
+}
+
+#hitAlert {
+	font-family: "Courier New";
+	font-size: 16px;
+	position: relative;
+	left: 0px;
+	top: 40px;
+	width: 195px;
+	height: 300px;
+}
 body {
 	background-image: url("Images/Thunderdome.png");
 		/* image source 2/19/15 14:09: "http://vignette2.wikia.nocookie.net/
