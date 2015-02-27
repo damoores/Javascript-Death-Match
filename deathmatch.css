@@ -45,27 +45,51 @@ header {
 	height: 405px;
 	border: 5px solid grey;
 	position: relative;
-	top: -07px;
+	top: 31px;
 	left: 200px;
 	display: inline-block;
+}
+
+#winnerAlert {
+	font-family: "Courier New";
+	color: white;
+	background-color: red;
+	opacity: .90;
+	width: 800px;
+	height: 505px;
+	border: 5px solid grey;
+	position: fixed;
+	top: 150px;
+	left: 325px;
+	display: inline-block;
+	z-index: 10;
+	display: none;
+}
+
+.scrollbox {
+height: 200px;
+width: 200px;
+overflow: auto;
 }
 
 #roundButton {
 	font-family: "Courier New";
 	font-size: 20px;
 	position: relative;
-	left: 40px;
+	left: 660px;
 	top: 15px;
 }
 
 #hitAlert {
 	font-family: "Courier New";
-	font-size: 16px;
+	font-size: 14px;
 	position: relative;
 	left: 0px;
-	top: 40px;
+	top: -20px;
 	width: 195px;
 	height: 300px;
+	overflow: auto;
+
 }
 body {
 	background-image: url("Images/Thunderdome.png");
@@ -77,9 +101,9 @@ body {
 .fighter {
 	font-family: "Courier New";
 	color: white;
+	text-align: center;
 	background-color: black;
 	opacity: .75;
-	text-align: center;
 	width: 405px;
 	height: 405px;
 	border: 5px solid grey;
@@ -87,7 +111,23 @@ body {
 	margin: auto;
 }
 
+#winner {
+	font-family: "Courier New";
+	font-size: 140px;
+	background-color: red;
+	opacity: .90;
+	color: white;
+	text-align: center;
+}
+
+.onHit {
+	background-color: red;
+	width: 355px;
+	height: 355px;
+}
+
 .picture {
 	width: 400px;
 	height: 250px;
 }
+

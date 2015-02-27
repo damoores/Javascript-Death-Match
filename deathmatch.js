@@ -10,9 +10,6 @@ var userStats = '';
 var computerHit='';
 var userHit='';
 
-$('#compStats').replaceWith(statRollup(computerFighter)); //placeholder
-$('#userStats').replaceWith(statRollup(userFighter)); //placeholder
-
 function rollDice() {
   return Math.floor((Math.random()*10)+1);
 }
@@ -26,12 +23,23 @@ function statRollup(theFighter) {
 }
 
 function fightRound () {
+  if (computerFighter.health < 0 || userFighter.health < 0) {
+    if (computerFighter.health > userFighter.health) {
+      $('#winner').html('YOU LOSE!');
+      $('#winnerAlert').show('slow');
+      return;
+    } else {
+      $('#winner').html('YOU WIN!!');
+      $('#winnerAlert').show('slow');
+    } 
+    return;
+  }
   computerHit='';
   userHit='';
   if (computerFighter.luck>rollDice() && computerFighter.health > 0) {
     computerHit=(rollDice()+computerFighter.weapon);
     userFighter.health -= computerHit;
-    //$('#userStats').replaceWith(statRollup(userFighter)); //placeholder
+    $( "#userFight" ).effect( "shake", {times:1}, 200 );
   } else {
     computerHit = 'missed!';
   }
@@ -39,26 +47,19 @@ function fightRound () {
   if (userFighter.luck>rollDice() && userFighter.health > 0) {
     userHit=(rollDice()+computerFighter.weapon);
     computerFighter.health -= userHit;
+      $( "#compFight" ).effect( "shake", {times:1, direction:"right"}, 200 );
   } else {
     userHit = 'missed!';
   }
+  $('#computerStats').html(statRollup(computerFighter));
+  $('#userStats').html(statRollup(userFighter));
+  $('#computerHitAlert').append("The computer hit: " + computerHit + '<br />');
+  $('#userHitAlert').append("Your hit: " + userHit + '<br />');
+
 }
   
 function roundStart() {
   fightRound();
-  $('#userStats').val(statRollup(userFighter)); //placeholder
-  $('#compStats').replaceWith(computerFighter)); //placeholder
-  //alert("The computer hit " + computerHit);
-  //alert("Your hit " + userHit);
 }
 
 
-//$('#compStats').replaceWith(statRollup(computerFighter)); //placeholder
-//  $('#userStats').replaceWith(statRollup(userFighter)); //placeholder
-
-
-//alert("Computer HP: " + computerFighter.health + ". " + "Your HP: " + userFighter.health+ ".");
-
-/*for (property in userFighter) {
-  userStats += property + ':' + userFighter[property]+' ';
-} */

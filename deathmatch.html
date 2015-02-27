@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head> 
+	<script src="deathmatch.js" type="text/javascript"></script>
 	<title>Javascript Death Match</title>
 	<link href="deathmatch.css" type="text/css" rel="stylesheet"/>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
 </head>
 
 <body>
@@ -13,32 +15,52 @@
 
 	<section id="Intro">
 		  <p>Two fighters enter. One fighter survives.  Will you enter the bowels<br /> of Javascript	and HTML hell and emerge victorious?</p>
+		  <p>The fighters have been (pseudo)-ranodomly created.<br />Click the button to fight each round.</p>
 	</section>
-
+	
+	<section>
+			<input type="button" value="Start the round!" id="roundButton" onClick="roundStart()" /> 
+	</section>
+	
 	<section id="computerFighter" class="fighter">
 		<h1>Computer Fighter</h1>
-		<img class="picture" src = "Images/computerFighter.png"/>
+		<img id="compFight" class="picture" src = "Images/computerFighter.png"/>
 	<!--computerFighter img source 2/19/15 14:21: "http://img1.wikia.nocookie.net/__cb20140315155633/voldrania/images/3/3b/Zaescaes_warrior.png" -->
 	<p>Computer stats:</p>
-	<div id="compStats">&nbsp;</div>
+	<div id="computerStats">&nbsp;</div>
 	</section>
 
 	<section id="combatLog">
-		<input type="button" value="Start the round!" id="roundButton" onClick="roundStart()" /> 
-		<textarea id="hitAlert"></textarea>	
+		<h1>&nbsp;&nbsp;Combat Log</h1>
+		<div id="hitAlert" class="scrollbox">
+			<p id="computerHitAlert"></p>
+			<p id="userHitAlert"></p>
+		</div>	
 	</section>
+
+<section id="winnerAlert">
+	<p id="winner">&nbsp;</p>
+	<p>Reload page to play again</p>
+</section>
 
 	<section id="userFighter" class="fighter">
 		<h1>User Fighter</h1>
-		<img class="picture" src = "Images/userFighter.jpg"/>
+		<img id="userFight" class="picture" src = "Images/userFighter.jpg"/>
 		<!--userFighter img source 2/19/15 14:44: "http://hdw.datawallpaper.com/anime/some-warrior-293271.jpg"-->
 	<p>Your stats:</p>
 	<div id="userStats">&nbsp;</div>
 	</section>
 
-
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="deathmatch.js" type="text/javascript"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>	<script>	
+  $( document ).ready(function() {
+  $('#computerStats').html(statRollup(computerFighter));
+  $('#userStats').html(statRollup(userFighter));
+  });
+
+  </script>
+	
+
 </body>
 
 </html>
